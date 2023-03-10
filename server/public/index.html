@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./views/style.css" rel="stylesheet">
+    <script src="./vendors/jquery1.js"></script>
+    <script src="./scripts/client.js"></script>
+    <title>Task App</title>
+</head>
+<body>
+    <h1>Let's Get Things Done!</h1>
+
+    <p>Enter Tasks & Make Your To-Do List.<br>
+    When your task is done, the 'complete button' will turn green!</p>
+
+<div>
+    <input id="taskInput" placeholder="task" type="text">
+    <button data-id="submitBtn">Submit</button>
+</div>
+
+<div>
+    <thead>
+    <table>
+        <tr>
+            <th>Task</th>
+            <th>Completed?</th>
+            <th>Not Needed</th>
+        </tr>
+    </thead>
+    <tbody id="listOfTasksAdded">
+    </tbody>
+    </table>
+</div>
+</body>
+</html>
