@@ -11,8 +11,8 @@ const pool = new pg.Pool({
 
 //GET
 router.get('/', (req,res) => {
-    let queryText = `SELECT * FROM "tasks";`;
-    console.log('getting the dirty tasks from GET', queryText);
+    let queryText = `SELECT * FROM "tasks" ORDER BY "id";`;
+    console.log('Inside GET', queryText);
 
     pool.query(queryText)
     .then((result) => {
@@ -30,9 +30,9 @@ router.post('/', (req, res) =>{
     console.log('Inside making the req.body', newTask);
 
     let queryText = `INSERT INTO "tasks" ("task", "complete")
-    VALUES( $1, $2)`  //if this brakes, look: is "task" or "tasks"?
+    VALUES( $1, $2)`  
 
-    pool.query(queryText, [newTask.task, Boolen(newTask.complete)])
+    pool.query(queryText, [newTask.task, Boolean(newTask.complete)])
     .then((result) => {
     res.sendStatus(201);
 }).catch((err) => {

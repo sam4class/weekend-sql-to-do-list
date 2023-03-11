@@ -6,7 +6,8 @@ function onReady(){
     console.log('Inside onReady');
     //listeners here!  Will be buttons
     //submit
-    $('#submitTaskBtn').on('click', addTask);
+    $('#submitBtn').on('click', addTask);
+    console.log('Inside onClick submitbutton');
     //delete
     $('#listOfTasksAdded').on('click', '#deleteBtn', deleteBtn);
     //complete
@@ -21,6 +22,7 @@ function taskCompleteBtn(){
     console.log('Inside taskCompleteBtn');
 
     const idToComplete = $(this).parent().parent().data().id;
+    console.log('ID for completeBtn', idToComplete);
 
     $.ajax({
         method: 'PUT',
@@ -55,7 +57,8 @@ function addTask(){
     console.log('Inside addTask()');
 
     let taskToSend = {
-        task: $('taskInput').val(),
+        task: $('#taskInput').val(),
+        complete: $('#completeInput').val(),
     };
 
     console.log('task added', taskToSend);
@@ -63,13 +66,13 @@ function addTask(){
     $.ajax({
         method: 'POST',
         url: '/tasks',
-        data: taskToSend
+        data: taskToSend,
     }).then((result) => {
         console.log('result in POST');
         getTasks();
     }).catch((err) => {
-        console.log('Oh No, No task added', err);
-        alert('Bad Task!');
+        console.log('No task added', err);
+        alert('Error in task added');
     })
 }
 //GET
@@ -82,7 +85,7 @@ function getTasks(){
         url: '/tasks',
     }).then((result) => {
         console.log('Inside getTasks', result);
-        render(result)
+        render(result);
     });
 
 };
@@ -96,12 +99,20 @@ function render(object){
     for(let i=0; i<object.length; i++){
 
         $('#listOfTasksAdded').append(`
+        
         <tr data-id=${object[i].id}>
             <td>${object[i].task}</td>
             <td>${object[i].complete}</td>
-            <td><button id="completeBtn">Complete</button></td>
             <td><button id="deleteBtn">Delete</button></td>
+            <td id="completeId"><button id="completeBtn">Complete</button></td>
+        </tr>
         `)
+        
+        if(object[i].complete === true){
+            console.log('object[i].complete equals', object[i].complete);
+          $('#completeId').replaceWith('Completed!');
+           
+        }
     }
 
 }

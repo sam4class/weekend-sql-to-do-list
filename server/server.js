@@ -9,7 +9,7 @@ app.use(bodyParser.json());
 app.use(express.static('server/public'));
 
 //this is where to set up task import
-let tasksRouter = require('./routes/tasks.js');
+let tasksRouter = require('./routes/tasks');
 app.use('/tasks', tasksRouter);
 
 const PORT = 5000;
