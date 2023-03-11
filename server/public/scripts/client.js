@@ -98,6 +98,7 @@ function render(object){
 
     for(let i=0; i<object.length; i++){
 
+        if(object[i].complete === false){
         $('#listOfTasksAdded').append(`
         
         <tr data-id=${object[i].id}>
@@ -106,13 +107,18 @@ function render(object){
             <td><button id="deleteBtn">Delete</button></td>
             <td id="completeId"><button id="completeBtn">Complete</button></td>
         </tr>
-        `)
+        `) 
+        }else if(object[i].complete === true){
+            $('#listOfTasksAdded').append(`
         
-        if(object[i].complete === true){
-            console.log('object[i].complete equals', object[i].complete);
-          $('#completeId').replaceWith('Completed!');
-           
+            <tr data-id=${object[i].id}>
+                <td>${object[i].task}</td>
+                <td>${object[i].complete}</td>
+                <td><button id="deleteBtn">Delete</button></td>
+                <td id="completeId">Completed!!</td>
+            </tr>
+            `) 
         }
     }
-
 }
+
