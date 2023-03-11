@@ -69,6 +69,8 @@ function addTask(){
         data: taskToSend,
     }).then((result) => {
         console.log('result in POST');
+        $('#taskInput').val('');
+        $('#completeInput').val('');
         getTasks();
     }).catch((err) => {
         console.log('No task added', err);
