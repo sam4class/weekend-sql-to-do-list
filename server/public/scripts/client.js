@@ -116,8 +116,8 @@ function render(object){
             <tr data-id=${object[i].id}>
                 <td>${object[i].task}</td>
                 <td>${object[i].complete}</td>
-                <td><button id="deleteBtn">Delete</button></td>
-                <td id="completeId">Completed!!</td>
+                <td><button class="btn btn-warning" id="deleteBtn">Delete</button></td>
+                <td id="completeId" class="btn btn-info">Completed!!</td>
             </tr>
             `) 
         }

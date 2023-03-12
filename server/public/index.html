@@ -1,39 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="./views/style.css" rel="stylesheet">
+    <!--<link href="./views/style.css" rel="stylesheet">-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <script src="./vendors/jquery1.js"></script>
     <script src="./scripts/client.js"></script>
     <title>Task App</title>
 </head>
+
 <body>
-    <h1>Let's Get Things Done!</h1>
+    <div class="container">
+        <h1 class="text-center">Let's Get Things Done!</h1>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+            crossorigin="anonymous"></script>
 
-    <p>Enter Tasks & Make Your To-Do List.<p>
-    <span>When your task is done, hit 'Complete'!</span>
+        <p>Enter Tasks & Make Your To-Do List.
+        <p>
+            <span class="small">When your task is done, hit 'Complete'!</span>
+    </div>
 
-<div>
-    <input id="taskInput" placeholder="task" type="text">
-    <span id="completeInput" placeholder="task completed" type="text"></span>
-    <button id="submitBtn">Submit</button>
-</div>
-<br>
-<div>
-    <thead>
-    <table>
-        <tr>
-            <th>Task</th>
-            <th>Completed?</th>
-            <th>Not Needed</th>
-            <th>You Did It!</th>
-        </tr>
-    </thead>
-    <tbody id="listOfTasksAdded">
-    </tbody>
-    </table>
-</div>
+    <div class="container">
+        <input id="taskInput" placeholder="task" type="text">
+        <span id="completeInput" placeholder="task completed" type="text"></span>
+        <button id="submitBtn" class="btn btn-primary btn-sm">Submit</button>
+    </div>
+    <br>
+    <div class="container">
+        <thead>
+            <table class="table">
+                <tr>
+                    <th>Task</th>
+                    <th>Completed?</th>
+                    <th>Not Needed</th>
+                    <th>You Did It!</th>
+                </tr>
+        </thead>
+        <tbody id="listOfTasksAdded">
+        </tbody>
+        </table>
+    </div>
 </body>
+
 </html>
