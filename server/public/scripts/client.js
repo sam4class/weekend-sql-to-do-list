@@ -37,8 +37,10 @@ function taskCompleteBtn(){
 //DELETE
 function deleteBtn(){
     console.log('Inside deleteBtn');
+    if(confirm("Are You Sure?")){
     const idToDelete = $(this).parent().parent().data().id;
     console.log('ID to delete', idToDelete);
+
 
     $.ajax({
         method: 'DELETE',
@@ -49,8 +51,10 @@ function deleteBtn(){
     }).catch((err) => {
         alert('Error deleting tasks', err);
     })
-}
 
+}
+return false;
+}
 
 //POST
 function addTask(){
