@@ -1,3 +1,5 @@
+CREATE DATABASE "tasks_To_Do";
+
 CREATE TABLE "tasks" (
 	"id" serial primary key,
 	"task" varchar(220) not null,

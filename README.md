@@ -13,14 +13,15 @@ This application should:
     <li>Whether or not a Task is complete should also be stored in the database.</li>
     <li>Deleting a Task should remove it both from the front end as well as the Database.</li>
     <li>Use CSS to go beyond the vanilla HTML look</li>
+    <li>Use a pop-up with the delete button to make sure user wants to delete task.</li>
 </ul>
 
 ## Screen Shot
 
-One without Bootstraps:
+One without Bootstrap:
 <img src="Screenshot 2023-03-11 at 7.27.00 PM.png">
 
-One with Bootstraps:
+One with Bootstrap:
 <img src="Screenshot 2023-03-11 at 6.46.45 PM.png">
 
 ## Prerequisites
@@ -30,15 +31,15 @@ One with Bootstraps:
     <li>Express</li>
     <li>body-Parser</li>
     <li>Nodemon</li>
+    <li>Postgres</li>
 </ul>
 
 ## Installation
 <ol>
-    <li>Create a database named your database name</li>
-    <li>The queries in the tables.sql file are set up to create all the necessary tables and populate the needed data to allow the application to run correctly. The project is built on Postgres, so you will need to make sure to have that installed. We recommend using Postico to run those queries as that was used to create the queries</li>
+    <li>The queries in the data.sql file are set up to create all the necessary tables and populate the needed data to allow the application to run correctly. The project is built on Postgres, so you will need to make sure to have that installed. We recommend using Postico to run those queries as that was used to create the queries</li>
     <li>Open up your editor of choice and run an npm install</li>
     <li>Run npm run server in your terminal</li>
-    <li>Run npm run client in your terminal</li>
     <li>The npm run client command will open up a new browser tab for you!</li>
+</ol>
 
 

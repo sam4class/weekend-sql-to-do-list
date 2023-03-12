@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--This is where you could have Bootstraps if you would like-->
     <link href="./views/style.css" rel="stylesheet">
     <script src="./vendors/jquery1.js"></script>
     <script src="./scripts/client.js"></script>
-   <!--<img src="https://images.pexels.com/photos/8099595/pexels-photo-8099595.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load" alt="pic of clipboard" class="center">-->
     <title>Task App</title>
 </head>
 <body>
@@ -17,6 +17,7 @@
     <span>When your task is done, hit 'Complete'!</span>
 
 <div>
+    <!--Input feilds for your task and where you will get your boolean-->
     <input id="taskInput" placeholder="task" type="text">
     <span id="completeInput" placeholder="task completed" type="text"></span>
     <button id="submitBtn">Submit</button>
@@ -32,6 +33,7 @@
             <th>You Did It!</th>
         </tr>
     </thead>
+    <!--This is where your list of tasks will go-->
     <tbody id="listOfTasksAdded">
     </tbody>
     </table>
