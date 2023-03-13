@@ -3,16 +3,29 @@ const router = express.Router();
 const pg = require('pg');
 
 //pg pool
-const pool = new pg.Pool({
+let pool;
+
+if(process.env.DATABASE_URL){
+    pool = new pg.Pool({
+        connectionString: process.env.DATABASE_URL,
+        ssl:{
+            rejectUnauthorized: false
+        }
+    })
+}
+else{
+ pool = new pg.Pool({
     database: "tasks_To_Do",
     host: "localhost",
     port: 5432
 });
+}
+
 
 //GET
 router.get('/', (req,res) => {
-    //grabs from the database, all the current data and orders them by id
-    let queryText = `SELECT * FROM "tasks" ORDER BY "id";`;
+    //grabs from the database, all the current tasks and orders them by id
+    let queryText = `SELECT * FROM "tasks" ORDER BY "id";`; // , "task" ASC? or ORDERED BY "complete"?
     console.log('Inside GET', queryText);
 
     //has the data from database ready to send back to the client
@@ -72,6 +85,7 @@ router.put('/:id', (req, res) => {
 
     //this Updates the database to TRUE in the completes column
     let queryText = `UPDATE "tasks" SET "complete" = TRUE WHERE "id"= $1`;
+    //to be able ot switch back to not complete UPDATE "tasks" SET "complete" = NOT "complete" WHERE "id"=$1
 
     //this tranfers that TRUE over to the client side and changes in the database
     pool.query(queryText, [taskToAddId])

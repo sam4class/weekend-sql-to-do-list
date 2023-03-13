@@ -38,7 +38,7 @@ function taskCompleteBtn() {
         getTasks();
     }).catch((err) => {
         alert('Task PUT did not work');
-    })
+    })//.catch?
 };
 
 //DELETE
@@ -76,7 +76,7 @@ function addTask() {
     };
     console.log('task added', taskToSend);
 
-    //this upates the DOM with exchanged data from the server
+    //this upates the DOM with exchanged data from the server, the new taks that is inputed by user
     $.ajax({
         method: 'POST',
         url: '/tasks',
@@ -92,7 +92,7 @@ function addTask() {
     }).catch((err) => {
         console.log('No task added', err);
         alert('Error in task added');
-    })
+    })//add a catch if you would like!
 }
 //GET
 function getTasks() {
@@ -105,7 +105,7 @@ function getTasks() {
     }).then((result) => {
         console.log('Inside getTasks', result);
         render(result);
-    });
+    });//wanna put a catch? This is where it would go . . .
 
 };
 

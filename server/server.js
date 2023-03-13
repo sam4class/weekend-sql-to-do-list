@@ -13,7 +13,7 @@ app.use(express.static('server/public'));
 let tasksRouter = require('./routes/tasks');
 app.use('/tasks', tasksRouter);
 
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
     console.log('Ready to go on PORT', PORT);
 })
